@@ -1,5 +1,5 @@
 #include <iostream>
-
+// versi code dex sama
 int main () {
 
     std::cout << "Enter your age: ";
