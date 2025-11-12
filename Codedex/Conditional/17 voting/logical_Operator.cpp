@@ -14,11 +14,7 @@ int main () {
     bool registered {};
     std::cin >> registered;
 
-
-    if (age >= 18 && citizen && registered) {
-        std::cout << "You can vote!. \n";
-    }
-    else if (age < 18) {
+    if (age < 18) {
         std::cout << "You are not old enough to vote. \n";
     }
     else if (citizen == false) {
@@ -28,7 +24,7 @@ int main () {
         std::cout << "You must registered first. \n";
     }
     else {
-        std::cout << "cannot meet the requirement. \n";
+         std::cout << "You can vote!. \n";
     }
     
     return 0;
