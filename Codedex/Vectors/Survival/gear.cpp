@@ -22,7 +22,7 @@ int main () {
 
     // CARA 1: Menggunakan For Loop Biasa (Yang baru Anda pelajari)
     // Kita loop dari index 0 sampai kurang dari alat.size()
-    for (int i = 0; i < alat.size(); i++) {
+    for (unsigned int i = 0; i < alat.size(); i++) {
         // Mengakses elemen vector menggunakan index [i]
         std::cout << i + 1 << ". " << alat[i] << "\n";
     }
