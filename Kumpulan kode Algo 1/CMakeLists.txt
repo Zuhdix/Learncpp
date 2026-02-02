@@ -5,7 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF) #
 
-add_executable(CMakeTarget "switch.cpp" "for_loop.cpp" "do_while_loop.cpp" "array1Dimensi.cpp" "array2Dimensi.cpp" "array2Dadvn.cpp" "arrayMultiModern.cpp") # ini yang diganti
+add_executable(CMakeTarget "switch.cpp" "for_loop.cpp" "do_while_loop.cpp" "array1Dimensi.cpp" "array2Dimensi.cpp" "array2Dadvn.cpp" "arrayMultiModern.cpp") # ini diganti ke target
 
 if(MSVC)
     # --- FLAGS UNTUK VISUAL STUDIO ---
@@ -25,3 +25,4 @@ else()
         -Woverloaded-virtual # Cek jika fungsi virtual tersembunyi
     )
 endif()
+
