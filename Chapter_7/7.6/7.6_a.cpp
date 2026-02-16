@@ -1,0 +1,1 @@
+[[maybe_unused]] constexpr int g_x{ 2 }; // this internal g_x is only accessible within a.cpp
