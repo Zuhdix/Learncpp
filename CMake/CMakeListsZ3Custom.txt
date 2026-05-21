@@ -1,0 +1,73 @@
+cmake_minimum_required(VERSION 3.10)
+project(CMakeTarget CXX)
+
+# --- STANDARD C++20 RULES ---
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+# Jalur folder Z3 (Pastikan folder C:/z3/include dan C:/z3/bin memang ada)
+set(Z3_ROOT "C:/z3")
+
+# Hapus flag /W3 bawaan CMake untuk MSVC agar tidak bentrok dengan /W4
+if(MSVC)
+    string(REGEX REPLACE "/W[0-4]" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+endif()
+
+# --- EXECUTABLE TARGET ---
+add_executable(CMakeTarget 
+    "Summary and Quiz.cpp")
+
+# =================================================================
+# FIX: HUBUNGKAN Z3 KE TARGET PROJECT DI SINI
+# =================================================================
+# 1. Beritahu compiler tempat folder 'include' Z3 agar "z3++.h" bisa dibaca
+target_include_directories(CMakeTarget SYSTEM PRIVATE "${Z3_ROOT}/include")
+
+# 2. Link file 'libz3.lib' untuk kebutuhan linker
+target_link_libraries(CMakeTarget PRIVATE "${Z3_ROOT}/bin/libz3.lib")
+
+# 3. Copy otomatis file 'libz3.dll' ke folder build output biar program bisa running
+add_custom_command(TARGET CMakeTarget POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    "${Z3_ROOT}/bin/libz3.dll"
+    $<TARGET_FILE_DIR:CMakeTarget>
+)
+# =================================================================
+
+# --- COMPILER FLAGS (THE ARMOR) ---
+if(MSVC)
+    # 1. FLAGS UNTUK VISUAL STUDIO    
+    # Catatan: Karena kamu pakai flag /WX, semua warning akan dianggap error. 
+    # Jadi konfigurasi include Z3 di atas wajib benar.
+    target_compile_options(CMakeTarget PRIVATE 
+        /W4 /WX /permissive- /analyze
+        /w44365 /w44062
+    )
+    
+    # 2. MSVC Address Sanitizer + Debug Info (/Zi)    
+    if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR CMAKE_BUILD_TYPE STREQUAL "")        
+        target_compile_options(CMakeTarget PRIVATE /fsanitize=address /Zi)    
+    endif()
+else()
+    # FLAGS UNTUK GCC / CLANG    
+    target_compile_options(CMakeTarget PRIVATE 
+        -Wall -Wextra -Wpedantic -Werror 
+        -Wconversion -Wsign-conversion -Wshadow -Wunused
+        -Wnon-virtual-dtor   
+        -Wold-style-cast     
+        -Wcast-align         
+        -Woverloaded-virtual 
+    )
+
+    # SANITIZERS GCC/Clang     
+    if(CMAKE_BUILD_TYPE STREQUAL "Debug" OR CMAKE_BUILD_TYPE STREQUAL "")        
+        target_compile_options(CMakeTarget PRIVATE 
+            -fsanitize=address,undefined 
+            -fno-omit-frame-pointer
+        )        
+        target_link_options(CMakeTarget PRIVATE 
+            -fsanitize=address,undefined
+        )    
+    endif()
+endif()
