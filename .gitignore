@@ -1,0 +1,18 @@
+# Visual Studio build output
+out/
+.vs/
+
+# Compiled files
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.lib
+*.dll
+*.bin
+*.exp
+
+# CMake generated
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
