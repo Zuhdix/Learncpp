@@ -15,7 +15,8 @@ endif()
 # HANYA masukkan file yang sedang kamu kerjakan saat ini.
 # Jika ingin ganti latihan, ganti nama file di bawah ini.
 add_executable(CMakeTarget 
-    "Procedural_programming.cpp" "OOP_Mindset.cpp")
+    # "Temporary_work.cpp" "Temporary_ClassObject.cpp" "TempObj_viaDirect.cpp"
+     "TempObj_ReturnByValue.cpp" "staticCast_Vs_explicit_Instantiation/printString.h" "staticCast_Vs_explicit_Instantiation/main.cpp")
 
 # --- COMPILER FLAGS (THE ARMOR) ---
 if(MSVC)

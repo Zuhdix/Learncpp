@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+﻿cmake_minimum_required(VERSION 3.10)
 project(CMakeTarget CXX)
 
 # --- STANDARD C++20 RULES ---
@@ -15,7 +15,8 @@ endif()
 # HANYA masukkan file yang sedang kamu kerjakan saat ini.
 # Jika ingin ganti latihan, ganti nama file di bawah ini.
 add_executable(CMakeTarget 
-    "Procedural_programming.cpp" "OOP_Mindset.cpp")
+    # "byValue_expensive.cpp"
+    "byLvalueRef.cpp" "byRvalue_careful.cpp" "dontDoThis.cpp" "Quiz.cpp")
 
 # --- COMPILER FLAGS (THE ARMOR) ---
 if(MSVC)

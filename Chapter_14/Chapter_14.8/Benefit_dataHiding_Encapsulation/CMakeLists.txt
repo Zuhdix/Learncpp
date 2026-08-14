@@ -15,7 +15,9 @@ endif()
 # HANYA masukkan file yang sedang kamu kerjakan saat ini.
 # Jika ingin ganti latihan, ganti nama file di bawah ini.
 add_executable(CMakeTarget 
-    "Procedural_programming.cpp" "OOP_Mindset.cpp")
+    # "Benefit_dataHiding_Encapsulation.cpp" "maintain_invariantsStructWrong.cpp" "maintain_invariantsClass.cpp"
+     # "betterErrorDetection.cpp" "Cara encapsulsi/Worst.cpp" "Cara encapsulsi/Better.cpp" "Cara encapsulsi/Best.cpp" 
+     "out/Quiz.cpp")
 
 # --- COMPILER FLAGS (THE ARMOR) ---
 if(MSVC)
