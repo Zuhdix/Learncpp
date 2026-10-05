@@ -1,9 +1,10 @@
+// 1b
 #include <iostream>
-#include <utility>
 
-void printArray(int &array[])
+template <typename T, std::size_t N>
+void printArray(T (&array)[N])
 {
-	for (int element : array)
+	for (T element : array)
 	{
 		std::cout << element << ' ';
 	}

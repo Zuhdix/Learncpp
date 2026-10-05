@@ -15,8 +15,8 @@ endif()
 # HANYA masukkan file yang sedang kamu kerjakan saat ini.
 # Jika ingin ganti latihan, ganti nama file di bawah ini.
 add_executable(CMakeTarget 
-    # "QuizTime_1a.cpp" 
-    "QuizTime_1b.cpp"
+    # "QuizTime_1a.cpp" "QuizTime_1b.cpp"
+    "QuizTime_1c.cpp"
 )
 
 # --- COMPILER FLAGS (THE ARMOR) ---
