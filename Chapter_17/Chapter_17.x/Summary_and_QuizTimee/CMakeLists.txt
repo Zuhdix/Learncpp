@@ -15,9 +15,9 @@ endif()
 # HANYA masukkan file yang sedang kamu kerjakan saat ini.
 # Jika ingin ganti latihan, ganti nama file di bawah ini.
 add_executable(CMakeTarget 
-    # "QuizTime_1a.cpp" "QuizTime_1b.cpp"
-    "QuizTime_1c.cpp"
-)
+    # "QuizTime_1a.cpp" "QuizTime_1b.cpp"  "QuizTime_1c.cpp"
+    # "QuizTime_2.cpp" "QuizTime_3.cpp"  "QuizTime_4_BlackJack.cpp"
+"QuizTime_5_BJ_upgrade.cpp" "Random.h" "QuizTime_Full_Documentation.cpp")
 
 # --- COMPILER FLAGS (THE ARMOR) ---
 if(MSVC)
